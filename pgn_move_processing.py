@@ -73,7 +73,12 @@ class PGNManipulator():
 
                 if self.current_text[current_id] == "(":
                     # New variant
-                    self.process_moves(current_id, parent, last_process_color)
+
+                    if black_processed :
+                        self.process_moves(current_id, move, last_process_color)
+                    else:
+                        self.process_moves(current_id, parent, last_process_color)
+
                     current_id = self.skip_variant(current_id)
 
                 elif self.current_text[current_id].isdigit():

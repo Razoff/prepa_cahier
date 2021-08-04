@@ -35,7 +35,7 @@ print("\n-------- SCANDI PGN --------\n")
 #scandi_pgn_move = pgn_move_processing.PGNManipulator(scandi_pgn)
 #scandi_pgn_move.process_file()
 scandi_game = game.Game.game_from_pgn(scandi_pgn)
-##scandi_game.print_all()
+scandi_game.print_all()
 
 print("\n-------- Others --------\n")
 
