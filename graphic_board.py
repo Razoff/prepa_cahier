@@ -1,7 +1,9 @@
 import hashlib
 from enum import Enum
 
-
+"""
+Enum class holding the name of all pieces
+"""
 class PieceName(Enum):
     PAWN = "p"
     ROOK = "R"
@@ -11,6 +13,14 @@ class PieceName(Enum):
     KING = "K"
 
 
+"""
+Class Piece
+Each piece has a name a color and a pos
+p_name: Piece name
+white: boolean True if white 
+row: row position
+column: column position
+"""
 class Piece:
     def __init__(self, p_name, white, row, column):
         self.p_name = p_name
@@ -18,6 +28,9 @@ class Piece:
         self.row = row
         self.column = column
 
+    """
+    print piece with all its component
+    """
     def print_piece(self):
         if self.white:
             color = "White"
@@ -25,12 +38,20 @@ class Piece:
             color = "Black"
         print(self.p_name, color, self.row, self.column)
 
+    """
+    return piece coordinate
+    if numerical is true return position as (int,int)
+    if numerical is false return position as (str, int) 
+    """
     def get_coord(self, numerical=False):
         if numerical:
             return int(self.row) - 1, ord(self.column) - 97
         else:
             return self.row, self.column
 
+    """
+    Short piece name is the form "letterColor" : Cw
+    """
     def get_short_name(self):
         if self.white:
             color = "w"
@@ -39,6 +60,9 @@ class Piece:
 
         return self.p_name.value + color
 
+    """
+    Get starting board position 
+    """
     @staticmethod
     def get_starting_board():
         ret = []
@@ -62,6 +86,10 @@ class Piece:
         return ret
 
 
+"""
+Graphic board to print
+TBU probably will be changed to FEN file type + external library to display board
+"""
 class GraphicBoard:
     def __init__(self, state=[]):
         if not state:

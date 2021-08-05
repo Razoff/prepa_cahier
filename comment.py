@@ -1,8 +1,17 @@
 class Comment:
+
+    """
+    Comment object it has two parameters
+    nags: holds a list of nags if there are some under the form $nb
+    comment: string comment
+    """
     def __init__(self, nags=[], comment=""):
         self.nags = nags
         self.comment = comment
 
+    """
+    Print list of all nags
+    """
     def print_nags(self):
         to_print = ""
         for elem in self.nags:
@@ -10,15 +19,24 @@ class Comment:
 
         print(to_print)
 
+    """
+    Print comment string
+    """
     def print_comment(self):
         print(self.comment)
 
+    """
+    Print full object : nags and comment string
+    """
     def print_full_comment(self):
         if self.nags == [] and self.comment == "":
             return
         else:
             print("NAGs", self.print_nags(), "COMMENT", self.print_comment())
 
+    """
+    Translation table from $nb to human readable 
+    """
     @staticmethod
     def translate_NAG(nag):
         # Comment on directly preceding move 0-9
