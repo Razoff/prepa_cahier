@@ -19,6 +19,9 @@ print("\n-------- EASY PGN --------\n")
 #easy_pgn_move.process_file()
 easy_game = game.Game.game_from_pgn(easy_pgn)
 easy_game.print_all()
+easy_game.make_graph()
+easy_game.display_graph()
+
 print("\n-------- HARD PGN --------\n")
 
 #header_hard = headers.Headers.get_headers_from_pgn(hard_pgn)
@@ -27,6 +30,8 @@ print("\n-------- HARD PGN --------\n")
 #hard_pgn_move.process_file()
 hard_game = game.Game.game_from_pgn(hard_pgn)
 hard_game.print_all()
+hard_game.make_graph()
+hard_game.display_graph()
 
 print("\n-------- SCANDI PGN --------\n")
 
@@ -36,6 +41,8 @@ print("\n-------- SCANDI PGN --------\n")
 #scandi_pgn_move.process_file()
 scandi_game = game.Game.game_from_pgn(scandi_pgn)
 scandi_game.print_all()
+scandi_game.make_graph()
+scandi_game.display_graph()
 
 print("\n-------- Others --------\n")
 
